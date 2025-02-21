@@ -1,27 +1,14 @@
 package com.MessagingApp;
-
-import org.springframework.web.bind.annotation.GetMapping;
-
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.MessagingApp.UserDTO;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/hello")
 public class Hello {
-    @GetMapping("/helloo")
-    public String hello() {
-        return "Hello from BridgeLabz";
+
+
+    @PostMapping("/post")
+    public String sayHello3(@RequestBody UserDTO user) {
+        return "Hello" + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz !";
     }
-    @GetMapping("/helloo/query")
-    public String dsayHello(@RequestParam(value="name",defaultValue="Guest") String name) {
-        return "Hello " + name + " from BridgeLabz !";
-    }
-    @GetMapping("/helloo/param/{name}")
-    public String sayHello2(@PathVariable String name) {
-        return "Hello " + name + " from BridgeLabz !";
-    }
-
-
-
-
 }
