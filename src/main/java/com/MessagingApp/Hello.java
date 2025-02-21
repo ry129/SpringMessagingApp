@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.*;
 public class Hello {
 
 
-    @PostMapping("/post")
-    public String sayHello3(@RequestBody UserDTO user) {
-        return "Hello" + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz !";
+    @PutMapping("/put/{firstName}")
+    public String sayHello3(@PathVariable String firstName,
+                            @RequestParam String lastName ) {
+        return "Hello" + firstName + " " + lastName + " from BridgeLabz !";
     }
 }
